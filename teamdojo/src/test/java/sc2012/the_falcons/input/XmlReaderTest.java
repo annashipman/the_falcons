@@ -24,7 +24,7 @@ public class XmlReaderTest {
 
 		Network network = createNetworkFrom("src/main/resources/ProNet.xml");
 
-		assertThat(network.getProgrammers(), is(7));
+		assertThat(network.getProgrammers(), is(10));
 
 	}
 
