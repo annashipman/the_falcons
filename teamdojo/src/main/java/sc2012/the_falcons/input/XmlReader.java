@@ -22,13 +22,21 @@ public class XmlReader {
 	}
 
 	public Network getNetwork() {
+		Element rootNode = createDocumentFrom(inputFile);
+
+		NodeList listOfProgrammers = rootNode.getElementsByTagName("Programmer");
+
+		return new Network(listOfProgrammers.getLength());
+	}
+
+	private Element createDocumentFrom(File aFile) {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder;
 		
 		Document document = null;
 		try {
 			builder = factory.newDocumentBuilder();
-			document = builder.parse(inputFile);
+			document = builder.parse(aFile);
 		} catch (ParserConfigurationException e) {
 			throw new RuntimeException(e);
 		}
@@ -40,10 +48,7 @@ public class XmlReader {
 		}
 
 		Element rootNode = document.getDocumentElement();
-
-		NodeList listOfProgrammers = rootNode.getElementsByTagName("Programmer");
-
-		return new Network(listOfProgrammers.getLength());
+		return rootNode;
 	}
 
 }
