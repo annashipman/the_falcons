@@ -2,6 +2,8 @@ package sc2012.the_falcons.input;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -25,8 +27,11 @@ public class XmlReader {
 		Element rootNode = createDocumentFrom(inputFile);
 
 		NodeList listOfProgrammers = rootNode.getElementsByTagName("Programmer");
-
-		return new Network(listOfProgrammers.getLength());
+		List<Object> programmers = new ArrayList<Object>();
+		for (int index = 0; index < listOfProgrammers.getLength(); index++) {
+			programmers.add(listOfProgrammers.item(index));
+		}
+		return new Network(programmers);
 	}
 
 	private Element createDocumentFrom(File aFile) {

@@ -24,7 +24,7 @@ public class XmlReaderTest {
 
 		Network network = createNetworkFrom("src/main/resources/ProNet.xml");
 
-		assertThat(network.getProgrammers(), is(10));
+		assertThat(network.getProgrammers().size(), is(10));
 
 	}
 
@@ -38,7 +38,7 @@ public class XmlReaderTest {
 	@Test
 	public void shouldReturn2ProgrammersInTestNetwork() {
 		Network network = createNetworkFrom("src/test/resources/ProNet.xml");
-		assertThat(network.getProgrammers(), is(2));
+		assertThat(network.getProgrammers().size(), is(2));
 	}
 
 	private Network createNetworkFrom(String fileName) {
