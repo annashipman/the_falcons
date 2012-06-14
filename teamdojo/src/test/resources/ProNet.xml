@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Network>
+  <Programmer name='Anna'>
+    <Recommendations>
+      <Recommendation>Nathan</Recommendation>
+    </Recommendations>
+    <Skills>
+      <Skill>Java</Skill>
+      <Skill>JavaScript</Skill>
+      <Skill>Ruby</Skill>
+    </Skills>
+  </Programmer>
+  <Programmer name='Nathan'>
+    <Recommendations>
+      <Recommendation>Anna</Recommendation>
+    </Recommendations>
+    <Skills>
+      <Skill>Java</Skill>
+      <Skill>C#</Skill>
+    </Skills>
+  </Programmer>
+</Network>
