@@ -14,7 +14,7 @@ public class XmlReaderTest {
 
 	@Test
 	public void shouldReadXmlAndReturnANetwork() {
-		Network network = createNetworkFrom("");
+		Network network = createNetworkFrom("src/main/resources/ProNet.xml");
 
 		assertThat(network, is(notNullValue()));
 	}
@@ -22,15 +22,22 @@ public class XmlReaderTest {
 	@Test
 	public void shouldReturn7ProgrammersInNetwork() {
 
-		Network network = createNetworkFrom("");
+		Network network = createNetworkFrom("src/main/resources/ProNet.xml");
 
 		assertThat(network.getProgrammers(), is(7));
 
 	}
 
 	@Test
+	public void shouldReturnValidFile() {
+		File inputFile = new File("src/test/resources/ProNet.xml");
+		System.out.println(inputFile.getAbsolutePath());
+		assertThat(inputFile.exists(), is(true));
+	}
+
+	@Test
 	public void shouldReturn2ProgrammersInTestNetwork() {
-		Network network = createNetworkFrom("source/test/resources/ProNet.xml");
+		Network network = createNetworkFrom("src/test/resources/ProNet.xml");
 		assertThat(network.getProgrammers(), is(2));
 	}
 
